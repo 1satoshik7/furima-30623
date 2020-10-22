@@ -1,24 +1,50 @@
-# README
+# DB 設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users table
 
-Things you may want to cover:
+| Column             | Type                | Options                 |
+|--------------------|---------------------|-------------------------|
+| email              | string              | null: false             |
+| password           | string              | null: false             |
+| user_name          | string              | null: false             |
+| birth_date         | text                | null: false             |
+| nickname           | text                | null: false             |
 
-* Ruby version
+### Association
 
-* System dependencies
+* has_many :items
+* has_many :orders
 
-* Configuration
+## items table
 
-* Database creation
+| Column                              | Type       | Options           |
+|-------------------------------------|------------|-------------------|
+| product                             | string     | null: false       |
+| product_description                 | text       | null: false       |
+| category                            | text       | null: false       |
+| product_status                      | references | null: false       |
+| price                               | string     | null: false       |
+| price_range                         | text       | null: false       |
+| category                            | text       | null: false       |
+| product_status                      | references | null: false       |
+| user                                | references | foreign_key: true |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
+- has_one :order
 
-* Services (job queues, cache servers, search engines, etc.)
+## order table
 
-* Deployment instructions
+| Column        | Type       | Options           |
+|---------------|------------|-------------------|
+| freight       | text       | null: false       |
+| shiptoaddress | references | null: false       |
+| user          | references | null: false       |
+| item          | references | foreign_key: true |
+| user          | references | foreign_key: true |
 
-* ...
+### Association
+
+- belongs_to :item
+- belongs_to :user
