@@ -5,13 +5,13 @@
 | Column             | Type                | Options                 |
 |--------------------|---------------------|-------------------------|
 | email              | string              | null: false             |
-| password           | string              | null: false             |
-| birth_date         | text                | null: false             |
-| nickname           | text                | null: false             |
-| sur_name           | text                | null: false             |
-| name               | text                | null: false             |
-| sur_name(ruby)     | text                | null: false             |
-| name(ruby)         | text                | null: false             |
+| encrypted_password | string              | null: false             |
+| date               | text                | null: false             |
+| nickname           | string              | null: false             |
+| sur_name           | string              | null: false             |
+| name               | string              | null: false             |
+| sur_name_ruby      | string              | null: false             |
+| name_ruby          | string              | null: false             |
 
 ### Association
 
@@ -20,17 +20,17 @@
 
 ## items table
 
-| Column         | Type       | Options           |
-|----------------|------------|-------------------|
-| name           | string     | null: false       |
-| description    | text       | null: false       |
-| category       | integer    | null: false       |
-| product_status | integer    | null: false       |
-| price          | integer    | null: false       |
-| freight        | integer    | null: false       |
-| shiptoaddress  | integer    | null: false       |
-| shipdate       | integer    | null: false       |
-| user           | references | foreign_key: true |
+| Column            | Type       | Options           |
+|-------------------|------------|-------------------|
+| name              | string     | null: false       |
+| description       | text       | null: false       |
+| category_id       | integer    | null: false       |
+| product_status_id | integer    | null: false       |
+| price             | string     | null: false       |
+| freight_id        | integer    | null: false       |
+| shiptoaddress_id  | integer    | null: false       |
+| shipdate_id       | integer    | null: false       |
+| user              | references | foreign_key: true |
 
 ### Association
 
@@ -52,9 +52,15 @@
 
 ## address table
 
-| Column | Type       | Options           |
-|--------|------------|-------------------|
-| order  | references | foreign_key: true |
+| Column        | Type       | Options           |
+|---------------|------------|-------------------|
+| postal_code   | string     | null: false       |
+| prefecture_id | integer    | null: false       |
+| city          | string     | null: false       |
+| house_number  | string     | null: false       |
+| building      | string     | null: false       |
+| tell          | string     | null: false       |
+| order         | references | foreign_key: true |
 
 ### Association
 
