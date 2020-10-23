@@ -26,7 +26,7 @@
 | description       | text       | null: false       |
 | category_id       | integer    | null: false       |
 | product_status_id | integer    | null: false       |
-| price             | string     | null: false       |
+| price_id          | integer    | null: false       |
 | freight_id        | integer    | null: false       |
 | shiptoaddress_id  | integer    | null: false       |
 | shipdate_id       | integer    | null: false       |
@@ -58,7 +58,7 @@
 | prefecture_id | integer    | null: false       |
 | city          | string     | null: false       |
 | house_number  | string     | null: false       |
-| building      | string     | null: false       |
+| building      | string     |                   |
 | tell          | string     | null: false       |
 | order         | references | foreign_key: true |
 
