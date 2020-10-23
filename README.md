@@ -26,7 +26,7 @@
 | description       | text       | null: false       |
 | category_id       | integer    | null: false       |
 | product_status_id | integer    | null: false       |
-| price_id          | integer    | null: false       |
+| price             | integer    | null: false       |
 | freight_id        | integer    | null: false       |
 | shiptoaddress_id  | integer    | null: false       |
 | shipdate_id       | integer    | null: false       |
