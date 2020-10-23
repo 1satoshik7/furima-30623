@@ -6,9 +6,12 @@
 |--------------------|---------------------|-------------------------|
 | email              | string              | null: false             |
 | password           | string              | null: false             |
-| user_name          | string              | null: false             |
 | birth_date         | text                | null: false             |
 | nickname           | text                | null: false             |
+| sur_name           | text                | null: false             |
+| name               | text                | null: false             |
+| sur_name(ruby)     | text                | null: false             |
+| name(ruby)         | text                | null: false             |
 
 ### Association
 
@@ -17,17 +20,17 @@
 
 ## items table
 
-| Column                              | Type       | Options           |
-|-------------------------------------|------------|-------------------|
-| product                             | string     | null: false       |
-| product_description                 | text       | null: false       |
-| category                            | text       | null: false       |
-| product_status                      | references | null: false       |
-| price                               | string     | null: false       |
-| price_range                         | text       | null: false       |
-| category                            | text       | null: false       |
-| product_status                      | references | null: false       |
-| user                                | references | foreign_key: true |
+| Column         | Type       | Options           |
+|----------------|------------|-------------------|
+| name           | string     | null: false       |
+| description    | text       | null: false       |
+| category       | integer    | null: false       |
+| product_status | integer    | null: false       |
+| price          | integer    | null: false       |
+| freight        | integer    | null: false       |
+| shiptoaddress  | integer    | null: false       |
+| shipdate       | integer    | null: false       |
+| user           | references | foreign_key: true |
 
 ### Association
 
@@ -38,9 +41,6 @@
 
 | Column        | Type       | Options           |
 |---------------|------------|-------------------|
-| freight       | text       | null: false       |
-| shiptoaddress | references | null: false       |
-| user          | references | null: false       |
 | item          | references | foreign_key: true |
 | user          | references | foreign_key: true |
 
@@ -48,3 +48,14 @@
 
 - belongs_to :item
 - belongs_to :user
+- has_one :address
+
+## address table
+
+| Column | Type       | Options           |
+|--------|------------|-------------------|
+| order  | references | foreign_key: true |
+
+### Association
+
+- belongs_to :order
