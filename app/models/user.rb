@@ -20,4 +20,7 @@ class User < ApplicationRecord
     validates :sur_name_ruby
     validates :name_ruby
   end
+  with_options format:{with:/\A(?=.*?[a-zA-Z])(?=.*?\d)[a-zA-Z\d]{6,}\z/} do
+    validates :password
+  end
 end
