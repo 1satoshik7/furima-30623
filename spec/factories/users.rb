@@ -8,6 +8,6 @@ FactoryBot.define do
     name {"武"}
     sur_name_ruby {"ヤマダ"}
     name_ruby {"タケシ"}
-    date {1990-01-01}
+    date {"1990-01-01"}
   end
 end
