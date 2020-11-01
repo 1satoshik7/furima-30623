@@ -1,6 +1,11 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash [:category, :product_status, :freight, :shiptoaddress, :shipdate]
+  belongs_to_active_hash :category
+  belongs_to_active_hash :product_status
+  belongs_to_active_hash :freight
+  belongs_to_active_hash :shiptoaddress
+  belongs_to_active_hash :shipdate
+
   has_one_attached :image
 
   with_options presence: true do
