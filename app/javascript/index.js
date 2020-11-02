@@ -1,14 +1,12 @@
-$(function(){
-  $("#item_price").on('keyup', function(){
-    var price = $("#item_price").val();
-    if( 300 <= price && price <= 9999999) {
-    var fee = Math.floor(price / 10);
-    var profit = (price - fee);
-    $(".fee-span").text(fee);
-    $(".profit-span").text(profit);
-    }else{
-    $(".fee-span").text('');
-    $(".profit-span").text('');
-    }
-  })
-});
+window.addEventListener("load", price);
+function price() {
+  const input = document.getElementById("item-price");
+  const input2 = document.getElementById("add-tax-price");
+  const input3 = document.getElementById("profit");
+  input.addEventListener("input", () => {
+    const input_user = document.getElementById("item-price").value;
+    console.log(input_user)
+    input2.innerHTML = input_user * 0.1
+    input3.innerHTML = input_user - (input_user * 0.1)
+  });
+}
