@@ -11,5 +11,6 @@ FactoryBot.define do
     after(:build) do |item|
       item.image.attach(io: File.open('public/images/https://sozai.site/wp-content/uploads/2016/11/Icons8-220x150.png'), filename: 'https://sozai.site/wp-content/uploads/2016/11/Icons8-220x150.png')
     end
+    association :user
   end
 end

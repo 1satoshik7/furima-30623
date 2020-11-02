@@ -5,7 +5,6 @@ function price() {
   const input3 = document.getElementById("profit");
   input.addEventListener("input", () => {
     const input_user = document.getElementById("item-price").value;
-    console.log(input_user)
     input2.innerHTML = input_user * 0.1
     input3.innerHTML = input_user - (input_user * 0.1)
   });

@@ -86,10 +86,34 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
       end
 
-      it "category_idなどのactive_hashを用いているカラムが1以外でないと（--だったら）登録できないこと" do
+      it "category_idが1以外でないと（--だったら）登録できないこと" do
         @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category must be other than 1")
+      end
+
+      it "product_status_idが1以外でないと（--だったら）登録できないこと" do
+        @item.product_status_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Product status must be other than 1")
+      end
+
+      it "freight_idが1以外でないと（--だったら）登録できないこと" do
+        @item.freight_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Freight must be other than 1")
+      end
+
+      it "shiptoaddress_idが1以外でないと（--だったら）登録できないこと" do
+        @item.shiptoaddress_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shiptoaddress must be other than 1")
+      end
+
+      it "shipdate_idが1以外でないと（--だったら）登録できないこと" do
+        @item.shipdate_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipdate must be other than 1")
       end
     end
   end
