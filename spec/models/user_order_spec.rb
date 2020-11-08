@@ -56,7 +56,7 @@ RSpec.describe UserOrder, type: :model do
       end
 
       it "postal_codeにはハイフンが必要でないと登録できないこと" do
-        @user_order.postal_code = 1
+        @user_order.postal_code = 1111111
         @user_order.valid?
         expect(@user_order.errors.full_messages).to include("Postal code is invalid")
       end
