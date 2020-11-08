@@ -49,20 +49,26 @@ RSpec.describe UserOrder, type: :model do
         expect(@user_order.errors.full_messages).to include("Token can't be blank")
       end
 
-      it "prefecture_idが1以外でないと（--だったら）登録できないこと" do
+      it "prefecture_idが1以外でないと登録できないこと" do
         @user_order.prefecture_id = 1
         @user_order.valid?
         expect(@user_order.errors.full_messages).to include("Prefecture must be other than 1")
       end
 
-      it "postal_codeにはハイフンが必要でないと（--だったら）登録できないこと" do
+      it "postal_codeにはハイフンが必要でないと登録できないこと" do
         @user_order.postal_code = 1
         @user_order.valid?
         expect(@user_order.errors.full_messages).to include("Postal code is invalid")
       end
 
-      it "tellが電話番号にはハイフンは不要で、11桁以内ででないと（--だったら）登録できないこと" do
+      it "tellが電話番号にはハイフンは不要で、10桁以上ででないと登録できないこと" do
         @user_order.tell = 1
+        @user_order.valid?
+        expect(@user_order.errors.full_messages).to include("Tell is invalid")
+      end
+
+      it "tellが電話番号にはハイフンは不要で、11桁以内ででないと登録できないこと" do
+        @user_order.tell = 111111111111
         @user_order.valid?
         expect(@user_order.errors.full_messages).to include("Tell is invalid")
       end
