@@ -4,6 +4,7 @@ FactoryBot.define do
     prefecture_id {2}
     city {"清瀬市"}
     house_number {"1-1-1"}
+    building {"aaa"}
     tell {"09012345678"}
     token {"sampletokensampletoken"}
   end

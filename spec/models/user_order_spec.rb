@@ -10,6 +10,11 @@ RSpec.describe UserOrder, type: :model do
       it "postal_codeとprefecture_id、city、house_number、tell、tokenが存在すれば登録できること" do
         expect(@user_order).to be_valid
       end
+
+      it "buildingが空でも登録できること" do
+        @user_order.building = nil
+        expect(@user_order).to be_valid
+      end
     end
 
     context '出品がうまくいかないとき' do
